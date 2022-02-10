@@ -1,0 +1,40 @@
+* {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+body {
+ counter-reset: list; //Устанавливает значение счётчика, равным 0
+}
+
+.box {
+ max-width: 1140px;
+ margin: 0 auto;
+ padding: 0 15px;
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ &__item {
+  background-color: rgb(107, 137, 143);
+  width: 300px;
+  height: 40px;
+  color: rgb(218, 217, 217);
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: 700;
+  border: 2px solid rgb(171, 171, 171);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 10px 15px 10px rgb(45, 69, 68);
+ }
+ &__item:nth-child(even) { //псевдокласс ко всем нечетным элементам применит указанный цвет
+  background-color: rgb(73, 118, 120);
+ }
+ &__item::before {
+ content: counter(list); //Инкрементирует счётчик ++
+ counter-increment: list; //Отображает текущее значение счётчика
+ }
+}
