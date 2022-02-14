@@ -8,19 +8,38 @@ body {
  counter-reset: list; //Устанавливает значение счётчика, равным 0
 }
 
-.box {  
- margin: 0 auto;
- padding: 0 15px;
+// .box {  
+//  display: grid;
+//  grid-template-columns: 1fr 2fr;
+//  // grid-template-columns: 1fr 1fr 2fr; //фракция 
+//  // grid-template-rows: 100px 200px 150px;
+//  // grid-auto-rows: minmax(200px, auto); //увеличивает размер колонки(включая соседние в линии)в зависимости от размера контента
+//  // grid-template-columns: repeat(3, 1fr);
+//  // grid-template-columns: minmax(200px, auto) repeat(2, 1fr); 
+//  grid-row-gap: 10px;
+//  grid-column-gap: 30px;
+//  // grid-gap: 10px 30px; //для row и column
+.box { 
  display: grid;
- // grid-template-columns: 1fr 1fr 2fr; //фракция 
- // grid-template-rows: 100px 200px 150px;
- grid-auto-rows: minmax(200px, auto); //увеличивает размер колонки(включая соседние в линии)в зависимости от размера контента
- grid-template-columns: repeat(3, 1fr);
- // grid-template-columns: minmax(200px, auto) repeat(2, 1fr); 
- grid-row-gap: 10px;
- grid-column-gap: 30px;
- // grid-gap: 10px 30px; //для row и column
- 
+ grid-template-columns: 1fr 2fr;
+ grid-gap: 10px 30px;
+ grid-template-areas: 
+ 'header header'
+ 'aside content'
+ 'footer footer';
+ height: 100vh;
+ &__header-item {
+ grid-area: header;
+ }
+ &__aside-item {
+ grid-area: aside;
+ }
+ &__content-item {
+ grid-area: content;
+ }
+ &__footer-item {
+ grid-area: footer;
+ }
  &__item {
   background-color: rgb(107, 137, 143);
   // width: 300px; //не указываем
@@ -45,18 +64,18 @@ body {
  content: counter(list); //Инкрементирует счётчик ++
  counter-increment: list; //Отображает текущее значение счётчика
  }
- &__item:nth-child(1) {
-  grid-column: 1 / 4; //указываем сколько места занимает блок/ от 1 до 4
-  grid-row: 2; //меняем местами 1 на 2
- }
- &__item:nth-child(2) {
-  grid-column: 1 / 3;
-  grid-row: 1;//меняем местами 2 на 1
- }
- &__item:nth-child(5) {
-  grid-column: span 2; //блок расширится с того места где был, на 2 части
- }
- &__item:nth-child(6) {
-  grid-column: span 2; //блок расширится с того места где был, на 2 части
- }
+ // &__item:nth-child(1) {
+ //  grid-column: 1 / 4; //указываем сколько места занимает блок/ от 1 до 4
+ //  grid-row: 2; //меняем местами 1 на 2
+ // }
+ // &__item:nth-child(2) {
+ //  grid-column: 1 / 3;
+ //  grid-row: 1;//меняем местами 2 на 1
+ // }
+ // &__item:nth-child(5) {
+ //  grid-column: span 2; //блок расширится с того места где был, на 2 части
+ // }
+ // &__item:nth-child(6) {
+ //  grid-column: span 2; //блок расширится с того места где был, на 2 части
+ // }
 }
