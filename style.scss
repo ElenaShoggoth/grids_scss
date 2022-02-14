@@ -19,51 +19,54 @@ body {
 //  grid-row-gap: 10px;
 //  grid-column-gap: 30px;
 //  // grid-gap: 10px 30px; //для row и column
-.box { 
- display: grid;
- grid-template-columns: 1fr 2fr;
- grid-gap: 10px 30px;
- grid-template-areas: 
- 'header header'
- 'aside content'
- 'footer footer';
- height: 100vh;
- &__header-item {
- grid-area: header;
- }
- &__aside-item {
- grid-area: aside;
- }
- &__content-item {
- grid-area: content;
- }
- &__footer-item {
- grid-area: footer;
- }
- &__item {
-  background-color: rgb(107, 137, 143);
-  // width: 300px; //не указываем
-  // height: 40px; //не указываем
-  color: rgb(218, 217, 217);
-  font-size: 22px;
-  font-family: sans-serif;
-  font-weight: 700;
-  border: 2px solid rgb(171, 171, 171);
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  // margin: 15px;
-  box-shadow: 10px 15px 10px rgb(45, 69, 68);
- }
- &__item:nth-child(even) { //псевдокласс ко всем нечетным элементам применит указанный цвет
-  background-color: rgb(73, 118, 120);
- }
- &__item::before {
- content: counter(list); //Инкрементирует счётчик ++
- counter-increment: list; //Отображает текущее значение счётчика
- }
+
+// -- ------------------- AREAS -------------------- -->
+// .box { 
+//  display: grid;
+//  grid-template-columns: 1fr 2fr;
+//  grid-gap: 10px 30px;
+//  grid-template-areas: 
+//  'header header'
+//  'aside content'
+//  'footer footer';
+//  height: 100vh;
+//  &__header-item {
+//  grid-area: header;
+//  }
+//  &__aside-item {
+//  grid-area: aside;
+//  }
+//  &__content-item {
+//  grid-area: content;
+//  }
+//  &__footer-item {
+//  grid-area: footer;
+//  }
+ // &__item {
+ //  background-color: rgb(107, 137, 143);
+ //  // width: 300px; //не указываем
+ //  // height: 40px; //не указываем
+ //  color: rgb(218, 217, 217);
+ //  font-size: 22px;
+ //  font-family: sans-serif;
+ //  font-weight: 700;
+ //  border: 2px solid rgb(171, 171, 171);
+ //  border-radius: 5px;
+ //  display: flex;
+ //  justify-content: center;
+ //  align-items: center;
+ //  padding: 15px;
+ //  // margin: 15px;
+ //  box-shadow: 10px 15px 10px rgb(45, 69, 68);
+ // }
+ // &__item:nth-child(even) { //псевдокласс ко всем нечетным элементам применит указанный цвет
+ //  background-color: rgb(73, 118, 120);
+ // }
+ // &__item::before {
+ // content: counter(list); //Инкрементирует счётчик ++
+ // counter-increment: list; //Отображает текущее значение счётчика
+ // }
+ //----------------------------- ------------------
  // &__item:nth-child(1) {
  //  grid-column: 1 / 4; //указываем сколько места занимает блок/ от 1 до 4
  //  grid-row: 2; //меняем местами 1 на 2
@@ -78,4 +81,53 @@ body {
  // &__item:nth-child(6) {
  //  grid-column: span 2; //блок расширится с того места где был, на 2 части
  // }
-}
+// }
+ //-- ------------------- NEW FORM -------------------- -->
+
+ .box {
+  display: grid;
+  height: 800px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 20px;
+  &__item:nth-child(1),
+  &__item:nth-child(3) {
+   grid-column: span 2;
+   grid-row: span 2;
+  }
+  &__item:nth-child(2) {
+   grid-column: span 3;
+   grid-row: span 3;
+  }
+  &__item:nth-child(5) {
+   grid-column: span 2;
+   grid-row: span 3;
+  }
+  &__item:nth-child(6) {
+   grid-column: span 3;
+   grid-row: span 2;
+  }
+  &__item {
+   background-color: rgb(123, 43, 104);
+   color: rgb(218, 217, 217);
+   font-size: 22px;
+   font-family: sans-serif;
+   font-weight: 700;
+   border: 2px solid rgb(171, 171, 171);
+   border-radius: 5px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 15px;
+   box-shadow: 10px 15px 10px rgb(72, 42, 72);
+  }
+  &__item:nth-child(even) { //псевдокласс ко всем нечетным элементам применит указанный цвет
+   background-color: rgb(184, 105, 172);
+  }
+  &__item::before {
+  content: counter(list); //Инкрементирует счётчик ++
+  counter-increment: list; //Отображает текущее значение счётчика
+  }
+ 
+ }
+
